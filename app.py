@@ -242,7 +242,7 @@ if platform == "TikTok":
         {"category": "Bàn phím & Chuột", "fee": 0.0785},
         {"category": "Thực phẩm bổ sung sức khỏe", "fee": 0.1129},
         {"category": "Sách", "fee": 0.108},
-        {"category": "Sở thích & Sưu tầm", "fee": 0.13},
+       
 
     ])
 
@@ -709,6 +709,7 @@ elif platform == "Shopee":
         {"category": "Bàn phím máy tính", "fee": 0.1},
         {"category": "Thực phẩm bổ sung sức khỏe", "fee": 0.1129},
         {"category": "Sách", "fee": 0.12},
+        {"category": "Sở thích & Sưu tầm", "fee": 0.13},
 
     ])
 
@@ -1165,4 +1166,5 @@ elif platform == "Shopee":
         fee_table.style.format({"Số tiền (VNĐ)": "{:,.0f}"}),
         width="stretch"
     )
+
 
