@@ -246,6 +246,7 @@ if platform == "TikTok":
         {"category": "Đồ ăn & Đồ uống", "fee": 0.0884},
         {"category": "Thực phẩm tươi & đông lạnh", "fee": 0.0884},
         {"category": "Đồ dùng nhà bếp", "fee": 0.125},
+        {"category": "test", "fee": 0.55},
        
 
     ])
