@@ -242,6 +242,10 @@ if platform == "TikTok":
         {"category": "Bàn phím & Chuột", "fee": 0.0785},
         {"category": "Thực phẩm bổ sung sức khỏe", "fee": 0.1129},
         {"category": "Sách", "fee": 0.108},
+        {"category": "Thời trang (Áo thun & Áo sơ mi)", "fee": 0.13},
+        {"category": "Đồ ăn & Đồ uống", "fee": 0.0884},
+        {"category": "Thực phẩm tươi & đông lạnh", "fee": 0.0884},
+        {"category": "Đồ dùng nhà bếp", "fee": 0.125},
        
 
     ])
