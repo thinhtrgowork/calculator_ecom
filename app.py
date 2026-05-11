@@ -707,22 +707,77 @@ elif platform == "Shopee":
     # DATA NGÀNH HÀNG
     # ======================
     categories_sp = pd.DataFrame([
-        {"category": "Gia vị & Hương liệu", "fee": 0.11},
-        {"category": "Áo", "fee": 0.135},
+        {"category": "Thiết Bị Âm Thanh - Dàn âm thanh", "fee": 0.10},
+        {"category": "Thiết Bị Âm Thanh - Máy nghe nhạc", "fee": 0.08},
+        {"category": "Cameras & Flycam - Phụ kiện máy ảnh", "fee": 0.10},
+        {"category": "Cameras & Flycam - Máy ảnh", "fee": 0.075},
+        {"category": "Cameras & Flycam - Phụ kiện ống kính", "fee": 0.10},
+        {"category": "Cameras & Flycam - Camera giám sát", "fee": 0.08},
+        #
+        {"category": "Máy tính & Laptop - Thiết Bị Lưu Trữ", "fee": 0.08},
+        {"category": "Máy tính & Laptop - Linh Kiện Máy Tính", "fee": 0.075},
+        {"category": "Máy tính & Laptop - Chuột & Bàn Phím", "fee": 0.10},
+        {"category": "Máy tính & Laptop - Thiết Bị Mạng", "fee": 0.08},
+        {"category": "Máy tính & Laptop - Thiết Bị Văn Phòng", "fee": 0.10},
+        {"category": "Máy tính & Laptop - Phụ Kiện Máy Tính", "fee": 0.08},
+        {"category": "Gaming & Console - Máy chơi game", "fee": 0.075},
+        {"category": "Gaming & Console - Video Games", "fee": 0.10},
+        #
+        {"category": "Thiết Bị Điện Gia Dụng - Mạch điện & Phụ tùng", "fee": 0.10},
+        {"category": "Thiết Bị Điện Gia Dụng - Đồ gia dụng nhà bếp", "fee": 0.10},
+        {"category": "Thiết Bị Điện Gia Dụng - Thiết bị điện gia dụng lớn", "fee": 0.08},
+        {"category": "Thiết Bị Điện Gia Dụng - Thiết bị điện gia dụng nhỏ", "fee": 0.08},
+        {"category": "Thiết Bị Điện Gia Dụng - Tivi & Phụ kiện", "fee": 0.08},
+        #
+        {"category": "Điện Thoại & Phụ Kiện - Phụ kiện", "fee": 0.12},
+        {"category": "Điện Thoại & Phụ Kiện - Thiết bị đeo thông minh", "fee": 0.10},
+        #
+        {"category": "Voucher & Dịch vụ - Sức khỏe & Làm đẹp", "fee": 0.11},
+        {"category": "Voucher & Dịch vụ - Sự kiện & Giải trí", "fee": 0.11},
+        {"category": "Voucher & Dịch vụ - Nhà hàng & Ăn uống", "fee": 0.11},
+        {"category": "Voucher & Dịch vụ - Mã quà tặng Shopee", "fee": 0.11},
+        {"category": "Voucher & Dịch vụ - Nạp tiền tài khoản", "fee": 0.11},
+        {"category": "Voucher & Dịch vụ - Du lịch & Khách sạn", "fee": 0.11},
+        {"category": "Phụ Kiện Thời Trang", "fee": 0.135},
+        {"category": "Túi Ví Nam - Bóp/ Ví", "fee": 0.125},
+        {"category": "Thời Trang Nam", "fee": 0.135},
+        {"category": "Giày Dép Nam", "fee": 0.125},
+        {"category": "Thể Thao & Dã Ngoại - Phụ Kiện Thể Thao & Dã Ngoại  - Thời Trang Thể Thao & Dã Ngoại", "fee": 0.135},
+        {"category": "Thể Thao & Dã Ngoại - Dụng Cụ Thể Thao & Dã Ngoại - Giày Thể Thao", "fee": 0.125},
+        {"category": "Du lịch & Hành lý", "fee": 0.135},
+        {"category": "Đồng Hồ", "fee": 0.125},
+        #
+        {"category": "Túi Ví Nữ", "fee": 0.135},
+        {"category": "Thời Trang Nữ", "fee": 0.125},
+        {"category": "Thời Trang Nữ - Hoodie và Áo nỉ - Đồ liền thân - Đồ lót - Đồ Bầu - Quần - Quần đùi - Áo - Đồ ngủ", "fee": 0.135},
+        {"category": "Giày Dép Nữ - Xăng-đan và dép", "fee": 0.135},
+        {"category": "Giày Dép Nữ - Giày đế bằng - Phụ kiện & chăm sóc giày", "fee": 0.125},
+        {"category": "Mẹ & Bé", "fee": 0.13},
+        {"category": "Sắc Đẹp", "fee": 0.14},
+        #
+        {"category": "Thực phẩm và đồ uống - Đồ uống", "fee": 0.11},
+        {"category": "Thực phẩm và đồ uống - Ngũ cốc & mứt", "fee": 0.11},
+        {"category": "Thực phẩm và đồ uống - Đồ chế biến sẵn - Nguyên liệu nấu ăn", "fee": 0.11},
+        {"category": "Thực phẩm và đồ uống - Gia vị & Hương liệu", "fee": 0.10},
+        {"category": "Thực phẩm và đồ uống - Sữa - trứng", "fee": 0.11},
+        {"category": "Thực phẩm và đồ uống - Thực phẩm tươi sống & đông lạnh", "fee": 0.11},
+        {"category": "Thực phẩm và đồ uống - Đồ ăn vặt", "fee": 0.11},
+        {"category": "Thực phẩm và đồ uống - Nhu yếu phẩm", "fee": 0.11},
+        #
+        {"category": "Mẹ & Bé - Sữa công thức & Thực phẩm cho bé", "fee": 0.1},
+        #
+        {"category": "Sở thích & Sưu tầm - Đồ Sưu Tầm", "fee": 0.13},
+        {"category": "Sở thích & Sưu tầm  - Nhạc Cụ & Phụ Kiện - Quà Lưu Niệm", "fee": 0.13},
+        {"category": "Sở thích & Sưu tầm  - Đồ chơi - Giải trí", "fee": 0.14},
+        #
+        {"category": "Nhà cửa & Đời sống  - Đồ dùng phòng tắm - Chăn ga gối nệm - Trang trí nhà cửa", "fee": 0.13},
+        #
         {"category": "Giày thể thao/ Sneakers", "fee": 0.125},
         {"category": "Kẹo", "fee": 0.11},
-        {"category": "Bàn phím máy tính", "fee": 0.1},
-        {"category": "Thực phẩm bổ sung sức khỏe", "fee": 0.1129},
         {"category": "Sách & Tạp Chí", "fee": 0.12},
-        {"category": "Thiết Bị Điện Gia Dụng", "fee": 0.1},
-        {"category": "Thiết bị điện gia dụng nhỏ", "fee": 0.08},
-        {"category": "Thời trang - Áo thun", "fee": 0.135},
-        {"category": "Thực phẩm và đồ uống", "fee": 0.11},
-        {"category": "Đồ ăn vặt", "fee": 0.11},
         {"category": "Văn Phòng Phẩm", "fee": 0.1},
         {"category": "Sức Khỏe - Thực phẩm chức năng", "fee": 0.14},
-        {"category": "Sắc Đẹp", "fee": 0.14},
-
+        {"category": "Phụ tùng và Phụ kiện cho Phương tiện", "fee": 0.13},
     ])
 
     st.markdown("""
