@@ -707,6 +707,7 @@ elif platform == "Shopee":
     # DATA NGÀNH HÀNG
     # ======================
     categories_sp = pd.DataFrame([
+        {"category": "Thực phẩm và đồ uống - Gia vị & Hương liệu", "fee": 0.10},
         {"category": "Thiết Bị Âm Thanh - Dàn âm thanh", "fee": 0.10},
         {"category": "Thiết Bị Âm Thanh - Máy nghe nhạc", "fee": 0.08},
         {"category": "Cameras & Flycam - Phụ kiện máy ảnh", "fee": 0.10},
@@ -758,7 +759,7 @@ elif platform == "Shopee":
         {"category": "Thực phẩm và đồ uống - Đồ uống", "fee": 0.11},
         {"category": "Thực phẩm và đồ uống - Ngũ cốc & mứt", "fee": 0.11},
         {"category": "Thực phẩm và đồ uống - Đồ chế biến sẵn - Nguyên liệu nấu ăn", "fee": 0.11},
-        {"category": "Thực phẩm và đồ uống - Gia vị & Hương liệu", "fee": 0.10},
+       
         {"category": "Thực phẩm và đồ uống - Sữa - trứng", "fee": 0.11},
         {"category": "Thực phẩm và đồ uống - Thực phẩm tươi sống & đông lạnh", "fee": 0.11},
         {"category": "Thực phẩm và đồ uống - Đồ ăn vặt", "fee": 0.11},
