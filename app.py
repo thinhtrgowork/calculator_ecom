@@ -721,7 +721,7 @@ elif platform == "Shopee":
         {"category": "Máy tính & Laptop - Thiết Bị Mạng", "fee": 0.08},
         {"category": "Máy tính & Laptop - Thiết Bị Văn Phòng", "fee": 0.10},
         {"category": "Máy tính & Laptop - Phụ Kiện Máy Tính", "fee": 0.08},
-        {"category": "Máy tính & Laptop của thầy Tấn", "fee": 0.38},
+        {"category": "Máy tính & Laptop của thầy Tấn", "fee": 0.038},
         {"category": "Gaming & Console - Máy chơi game", "fee": 0.075},
         {"category": "Gaming & Console - Video Games", "fee": 0.10},
         #
