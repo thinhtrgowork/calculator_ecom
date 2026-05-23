@@ -235,20 +235,114 @@ if platform == "TikTok":
     # DATA NGÀNH HÀNG
     # ======================
     categories = pd.DataFrame([
-        {"category": "Tương & hỗn hợp gia vị nấu ăn", "fee": 0.0884},
-        {"category": "Thời trang", "fee": 0.0982},
-        {"category": "Giày", "fee": 0.108},
-        {"category": "Kẹo", "fee": 0.0884},
-        {"category": "Bàn phím & Chuột", "fee": 0.0785},
-        {"category": "Thực phẩm bổ sung sức khỏe", "fee": 0.1129},
-        {"category": "Sách", "fee": 0.108},
-        {"category": "Thời trang (Áo thun & Áo sơ mi)", "fee": 0.13},
-        {"category": "Đồ ăn & Đồ uống", "fee": 0.0884},
-        {"category": "Thực phẩm tươi & đông lạnh", "fee": 0.0884},
-        {"category": "Đồ dùng nhà bếp", "fee": 0.125},
-        {"category": "test", "fee": 0.55},
-       
+        # MY SHOP
+        {"category": "Tạp hoá - Đồ ăn & Đồ uống - Tương & hỗn hợp gia vị nấu ăn", "fee": 0.11},
 
+        # NEW
+        {"category": "Mẹ & bé - Đồ chơi & sở thích (Búp bê & Gấu bông - Đồ chơi cổ điển & mới lạ - Đồ chơi giáo dục - Đồ chơi thể thao & ngoài trời)", "fee": 0.125},
+        {"category": "Mẹ & bé - Thời trang trẻ em", "fee": 0.135},
+        {"category":
+            "Mẹ & bé - Trẻ sơ sinh & thai sản (An toàn cho bé)", "fee": 0.13},
+        {"category": "Mẹ & bé - Trẻ sơ sinh & thai sản (Chăm sóc bé & sức khỏe)",
+         "fee": 0.115},
+        {"category":
+            "Mẹ & bé - Trẻ sơ sinh & thai sản (Cho bú & Cho ăn)", "fee": 0.13},
+        {"category": "Mẹ & bé - Trẻ sơ sinh & thai sản (Đồ chơi trẻ em - Những vật dụng cần thiết khi cho bé đi du lịch - Nội thất cho trẻ em)", "fee": 0.125},
+        {"category":
+            "Mẹ & bé - Trẻ sơ sinh & thai sản (Phụ kiện thời trang cho em bé - Quần áo & Giày trẻ em)", "fee": 0.135},
+        {"category":
+            "Mẹ & bé - Trẻ sơ sinh & thai sản (Vật tư cho mẹ)", "fee": 0.13},
+        {"category":
+            "Mẹ & bé - Trẻ sơ sinh & thai sản (Sữa công thức & Thực phẩm cho trẻ - Cháo, Bột & Ngũ cốc)", "fee": 0.1},
+        #
+        {"category": "Nhà cửa & Đời sống - Bộ sưu tập", "fee": 0.130},
+        {"category": "Nhà cửa & Đời sống (Công cụ & Phần cứng - Dụng cụ cầm tay - Dụng cụ điện - Đồ chơi & sở thích  - Đồ dùng cho thú cưng - Đồ dùng nhà bếp)", "fee": 0.130},
+        {"category": "Nhà cửa & Đời sống (Công cụ & Phần cứng - Dụng cụ làm vườn)",
+         "fee": 0.11},
+        {"category": "Nhà cửa & Đời sống (Đồ chơi & sở thích - Đồ chơi điện & điều khiển từ xa - Trò chơi & Ghép hình)", "fee": 0.13},
+        {"category": "Nhà cửa & Đời sống (Đồ gia dụng - Hàng dệt & Đồ nội thất mềm - Ô tô & xe máy - Đồ dùng & thiết bị điện)", "fee": 0.130},
+
+        {"category": "Nhà cửa & Đời sống (Vật dụng làm vườn - Vật tư xây dựng - Đèn & hệ thống chiếu sáng)", "fee": 0.11},
+        {"category": "Nhà cửa & Đời sống (Thể thao & Ngoài trời - Quạt cắm trại - Đạp xe)",
+         "fee": 0.125},
+        #
+        {"category":
+            "Sức khoẻ, Làm đẹp & Chăm sóc cá nhân (Đồ tắm & Chăm sóc cơ thể - Nước hoa - Thiết bị chăm sóc cá nhân - Trang điểm)", "fee": 0.14},
+        {"category":
+            "Sức khoẻ, Làm đẹp & Chăm sóc cá nhân (Chăm sóc & Tạo kiểu tóc - Chăm sóc da - Chăm sóc móng tay - Thực phẩm bổ sung)", "fee": 0.14},
+        {"category":
+            "Sức khoẻ, Làm đẹp & Chăm sóc cá nhân (Thuốc & Điều trị không kê đơn - Thuốc & Phương pháp điều trị thay thế)", "fee": 0.125},
+        {"category":
+            "Sức khoẻ, Làm đẹp & Chăm sóc cá nhân (Vật tư y tế)", "fee": 0.125},
+        #
+        {"category": "Tạp hoá - (Phiếu quà tặng bản cứng)", "fee": 0.11},
+        {"category": "Tạp hoá - (Đồ ăn & Đồ uống - Bia, Rượu & Rượu mạnh)",
+         "fee": 0.13},
+        {"category":
+            "Tạp hoá - Đồ ăn & Đồ uống - (Đồ ăn vặt - Kẹp & Đồ dùng nấu ăn cần thiết )", "fee": 0.11},
+        {"category":
+            "Tạp hoá - Đồ ăn & Đồ uống - (Thực phẩm tươi & đông lạnh )", "fee": 0.11},
+        {"category": "Tạp hoá - Đồ ăn & Đồ uống - (Nướng bánh)", "fee": 0.13},
+        {"category": "Tạp hoá - Đồ ăn & Đồ uống - (Sữa và bơ sữa)",
+         "fee": 0.115},
+        {"category": "Tạp hoá - Đồ ăn & Đồ uống - (Thực phẩm ăn liền)",
+         "fee": 0.11},
+        #
+        {"category": "Tạp hoá - Máy tính & Thiết bị Văn phòng", "fee": 0.1},
+        {"category": "Tạp hoá - Sách, tạp chí & âm thanh", "fee": 0.12},
+        {"category": "Tạp hoá - Sản phẩm trực tuyến", "fee": 0.12},
+        #
+        {"category":
+            "Thiết bị điện tử - Điện thoại & Đồ điện tử (Âm thanh & Video)", "fee": 0.1},
+        {"category":
+            "Thiết bị điện tử - Điện thoại & Đồ điện tử (Camera & Nhiếp ảnh - Chơi game & Bảng điều khiển)", "fee": 0.075},
+        {"category":
+            "Thiết bị điện tử - Điện thoại & Đồ điện tử (Phụ kiện đa năng)", "fee": 0.12},
+
+        {"category":
+            "Thiết bị điện tử - Điện thoại & Đồ điện tử (Phụ kiện đa năng - Phụ kiện điện thoại)", "fee": 0.12},
+        {"category":
+            "Thiết bị điện tử - Điện thoại & Đồ điện tử (Phụ kiện máy tính bảng & máy tính - Thiết bị giáo dục - Thiết bị thông minh & Thiết bị đeo)", "fee": 0.1},
+        {"category":
+            "Thiết bị điện tử - Máy tính & Thiết bị Văn phòng (Các thành phần mạng)", "fee": 0.08},
+        {"category":
+            "Thiết bị điện tử - Máy tính & Thiết bị Văn phòng (Linh kiện máy tính để bàn & máy tính xách tay)", "fee": 0.075},
+        {"category":
+            "Thiết bị điện tử - Máy tính & Thiết bị Văn phòng (Máy tính để bàn, Máy tính xách tay & Máy tính bảng)", "fee": 0.02},
+        {"category":
+            "Thiết bị điện tử - Máy tính & Thiết bị Văn phòng (Phần mềm & Bộ nhớ - Thiết bị ngoại vi & Phụ kiện)", "fee": 0.08},
+        #
+        {"category": "Thiết bị điện tử - Đồ gia dụng (Bàn là - Cây lau nhà chạy bằng điện - Máy hút bụi & Robot quét nhà - Máy là hơi - Máy sấy tay - Máy sưởi)", "fee": 0.08},
+        {"category":
+            "Thiết bị điện tử - Đồ gia dụng (Chăn điện - Chổi điện cọ rửa - Máy diệt muỗi điện tử - Máy tẩy xơ vả)", "fee": 0.1},
+        {"category": "Thiết bị điện tử - Đồ gia dụng lớn (Bình nước nóng - Bộ phận & phụ kiện của thiết bị lớn - Đầu thu kỹ thuật số - Máy điều hoà - Máy hút mùi - Tủ lạnh & Tủ đông)", "fee": 0.08},
+        {"category":
+            "Thiết bị điện tử - Đồ gia dụng lớn (Máy giặt & Máy sấy - Ti vi)", "fee": 0.075},
+        #
+        {"category": "Thiết bị điện tử - Dụng cụ nhà bếp - Thiết bị thương mại", "fee": 0.1},
+        #
+
+        {"category": "Thời trang - Giày nam - Giày nữ - Phụ kiện giày", "fee": 0.125},
+        {"category":
+            "Thời trang - Hành lý & Túi xách (Phụ kiện túi - Hành lý & Túi du lịch - Túi xách nam - Túi xách nữ)", "fee": 0.135},
+
+        {"category":
+            "Thời trang - Phụ kiện thời trang (Đồng hồ & Phụ kiện - Kính mắt - Nối tóc & tóc giả - Phụ kiện quần áo)", "fee": 0.135},
+        {"category":
+            "Thời trang - Phụ kiện thời trang (Phục sức & phụ kiện - Vải may váy)", "fee": 0.125},
+
+        #
+        {"category": "Thời trang - Phụ kiện trang sức & Phái sinh - Bạc", "fee": 0.135},
+        {"category": "Thời trang - Phụ kiện trang sức & Phái sinh - (Bạch kim & Vàng Carat - Đá bán quý - Đá quý nhân tạo - Hổ phách - Hồng ngọc, Sapphire & Ngọc lục bảo - Kim cương - Ngọc bích - Pha lê tự nhiên - Vàng)", "fee": 0.125},
+
+        {"category": "Thời trang - Thể thao & Ngoài trời (Đồ bơi, đồ lướt sóng & đồ lặn - Đồ thể thao & ngoài trời - Phụ kiện thể thao & ngoài trời)", "fee": 0.135},
+        {"category": "Thời trang - Thể thao & Ngoài trời (Cửa hàng dành cho người hâm mộ - Giày thể thao - Thiết bị các môn thể thao bóng - Thiết bị cắm trại & đi bộ đường dài - Thiết bị giải trí ngoài trời & thư giãn)", "fee": 0.125},
+        {"category":
+            "Thời trang - Thể thao & Ngoài trời (Thiết bị thể thao dưới nước)", "fee": 0.125},
+        #
+        {"category": "Thời trang - Thời trang Hồi giáo", "fee": 0.125},
+        #
+        {"category": "Thời trang - Trang phục nam & Đồ lót & Trang phục nữ & Đồ lót", "fee": 0.135},
     ])
 
     st.markdown("""
