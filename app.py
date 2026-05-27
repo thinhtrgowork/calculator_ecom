@@ -155,14 +155,50 @@ div[role="radiogroup"] > label[data-checked="true"] {
 </style>
 """, unsafe_allow_html=True)
 
+st.markdown("""
+<style>
+.metric-card {
+    background: #f8fafc;
+    padding: 12px;
+    border-radius: 18px;
+    border: 1px solid #e2e8f0;
+    margin-top: 10px;
+}
+
+.metric-label {
+    font-size: 13px;
+    color: #64748b;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.metric-value {
+    font-size: 18px;
+    font-weight: 800;
+    color: #111827;
+}
+
+.main-price {
+    font-size: 18px;
+    color: #ff0050;
+}
+
+.final-price {
+            font-size: 28px;
+    color: #16a34a;
+}
+</style>
+""", unsafe_allow_html=True)
+
 
 # ======================
 # PAGE CONFIG
 # ======================
 st.set_page_config(
     page_title="TikTok Profit Calculator",
-    layout="centered"
+    layout="wide"
 )
+
 st.markdown("""
 <style>
 .platform-btn {
@@ -522,6 +558,8 @@ if platform == "TikTok":
         unsafe_allow_html=True
     )
     st.markdown('</div>', unsafe_allow_html=True)
+    ###########
+    
 
     st.markdown("""
     <style>
@@ -567,132 +605,240 @@ if platform == "TikTok":
     </style>
     """, unsafe_allow_html=True)
 
-    col1, col2 = st.columns(2)
+    cot1, cot2 = st.columns(2)
 
-    with col1:
+    with cot1:
+        col1, col2 = st.columns(2)
+
+        with col1:
+            st.markdown("""
+            <div class="">
+                <div class="price-title">🏷️ Giá bán</div>
+                <div class="price-hint">Giá niêm yết trên TikTok</div>
+            """, unsafe_allow_html=True)
+
+            sell_price = st.number_input(
+                "Giá bán (VNĐ)",
+                min_value=0.0,
+                value=185000.0,
+                step=500.0,
+                label_visibility="collapsed"
+            )
+
+            st.markdown("</div>", unsafe_allow_html=True)
+
+        with col2:
+
+            st.markdown("""
+            <div class="">
+                <div class="price-title">🎟️ Voucher</div>
+                <div class="price-hint">Tổng Voucher (VNĐ)</div>
+            """, unsafe_allow_html=True)
+            voucher_total = st.number_input(
+                "Tổng Voucher (VNĐ)",
+                min_value=0,
+                value=0,
+                step=1000,
+                label_visibility="collapsed"
+            )
+
+        # ======================
+        # VOUCHER INPUT
+        # ======================
+        cofund_rate = st.number_input(
+            "🤝 TikTok tài trợ voucher (%)",
+            min_value=0.0,
+            max_value=100.0,
+            value=40.0,
+            step=0.1,
+        ) / 100
+
+        # ======================
+        # CO-FUND LOGIC
+        # ======================
+
+        # Khách thực trả
+        customer_pay = max(sell_price - voucher_total, 0)
+
+        # TikTok hỗ trợ
+        tiktok_support = voucher_total * cofund_rate
+
+        # Shop chịu
+        shop_voucher_fee = voucher_total - tiktok_support
+
+        # Shop thực nhận
+        seller_revenue = sell_price - shop_voucher_fee
+
+        # ======================
+        # DISPLAY
+        # ======================
+
+        # ======================
+        # MAIN CARD
+        # ======================
+        v0, v1, v2 = st.columns(3)
+        with v0:
+            st.markdown(f"""
+            <div class="metric-card">
+                <div class="metric-label">
+                    💰 Giá khách thanh toán
+                </div>
+                <div class="metric-value main-price">
+                    {customer_pay:,.0f} đ
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+
+        with v1:
+            st.markdown(f"""
+            <div class="metric-card">
+                <div class="metric-label">
+                    🤝 TikTok tài trợ
+                </div>
+                <div class="metric-value">
+                    {tiktok_support:,.0f} đ
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+
+        with v2:
+            st.markdown(f"""
+            <div class="metric-card">
+                <div class="metric-label">
+                    🏪 Shop chịu
+                </div>
+                <div class="metric-value">
+                    {shop_voucher_fee:,.0f} đ
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+
+        # ======================
+        # FINAL
+        # ======================
+
+        st.markdown(f"""
+        <div class="metric-card">
+            <div class="metric-label">
+                💵 Doanh thu Shop ghi nhận
+            </div>
+            <div class="metric-value final-price">
+                {seller_revenue:,.0f} đ
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+
+        st.markdown('</div>', unsafe_allow_html=True)
+
+    with cot2:
+        # ======================
+        # CHI PHÍ KHÁC
+        # ======================
+        # st.markdown('<div class="section-title">Chi phí khác</div>',
+        #             unsafe_allow_html=True)
         st.markdown("""
-    <div class="">
-        <div class="price-title">💸 Giá nhập</div>
-        <div class="price-hint">Chi phí nhập 1 sản phẩm</div>
-    """, unsafe_allow_html=True)
+            <div class="">
+                <div class="price-title">💸 Giá nhập</div>
+                <div class="price-hint">Chi phí nhập 1 sản phẩm</div>
+            """, unsafe_allow_html=True)
 
         cost_price = st.number_input(
             "Giá nhập (VNĐ)",
             min_value=0.0,
-            value=41000.0,
-            step=1000.0,
-            label_visibility="collapsed"
-        )
-
-        st.markdown("</div>", unsafe_allow_html=True)
-
-    with col2:
-        st.markdown("""
-    <div class="">
-        <div class="price-title">🏷️ Giá bán</div>
-        <div class="price-hint">Giá niêm yết trên TikTok</div>
-    """, unsafe_allow_html=True)
-
-        sell_price = st.number_input(
-            "Giá bán (VNĐ)",
-            min_value=0.0,
-            value=75000.0,
-            step=1000.0,
-            label_visibility="collapsed"
-        )
-
-        st.markdown("</div>", unsafe_allow_html=True)
-
-    st.markdown('<div class="section-title">Thiết lập chi phí</div>',
-                unsafe_allow_html=True)
-
-    c1, c2, c3 = st.columns(3)
-
-    with c1:
-        affiliate_fee = st.number_input(
-            "✏️ Affiliate (%)",
-            min_value=0.0,
-            max_value=50.0,
-            value=7.0,
-            step=0.1
-        ) / 100
-        transaction_fee_rate = st.number_input(
-            "Transaction fee (%)",
-            min_value=0.0,
-            max_value=50.0,
-            value=5.0,      # ✅ mặc định 5%
-            step=0.5
-        ) / 100
-
-        voucher_fee = st.number_input(
-            "Voucher (VNĐ)",
-            min_value=0,
-            value=0,
-            step=1000
-        )
-
-    with c2:
-
-        ads_fee = st.number_input(
-            "✏️ Quảng cáo (%)",
-            min_value=0.0,
-            max_value=50.0,
             value=0.0,
-            step=0.5
-        ) / 100
-        extra_voucher_rate = st.number_input(
-            "Voucher Extra (%)",
-            min_value=0.0,
-            max_value=50.0,
-            value=3.0,      # ✅ mặc định 3%
-            step=0.5
-        ) / 100
-        SFR_service_fee = st.number_input(
-            "Phí SFR service (VNĐ)",
-            min_value=0,
-            value=1620,
-            step=500
+            step=500.0,
+            label_visibility="collapsed"
         )
 
-    with c3:
-        packing_fee = st.number_input(
-            "✏️ Phí đóng gói (VNĐ)",
-            min_value=0,
-            value=1500,
-            step=500
-        )
+        st.markdown("</div>", unsafe_allow_html=True)
+        c1, c2, c3 = st.columns(3)
 
-        handling_fee = st.number_input(
-            "Phí xử lý đơn (VNĐ)",
-            min_value=0,
-            value=3000,
-            step=500
-        )
+        with c1:
+            affiliate_fee = st.number_input(
+                "✏️ Affiliate (%)",
+                min_value=0.0,
+                max_value=50.0,
+                value=0.0,
+                step=0.1
+            ) / 100
 
-        tax_fee = st.number_input(
-            "Thuế (%)",
-            min_value=0.0,
-            max_value=20.0,
-            value=1.5,
-            step=0.1
-        ) / 100
+            transaction_fee_rate = st.number_input(
+                "Transaction fee (%)",
+                min_value=0.0,
+                max_value=50.0,
+                value=6.0,  # New change
+                step=0.5
+            ) / 100
+
+        with c2:
+
+            ads_fee = st.number_input(
+                "✏️ Quảng cáo (%)",
+                min_value=0.0,
+                max_value=50.0,
+                value=0.0,
+                step=0.5
+            ) / 100
+
+            extra_voucher_rate = st.number_input(
+                "Voucher Extra (%)",
+                min_value=0.0,
+                max_value=50.0,
+                value=4.0,  # New change
+                step=0.5
+            ) / 100
+
+            SFR_service_fee = st.number_input(
+                "Phí SFR service (VNĐ)",
+                min_value=0,
+                value=1620,
+                step=500
+            )
+
+        with c3:
+            packing_fee = st.number_input(
+                "✏️ Phí đóng gói (VNĐ)",
+                min_value=0,
+                value=0,
+                step=500
+            )
+
+            handling_fee = st.number_input(
+                "Phí xử lý đơn (VNĐ)",
+                min_value=0,
+                value=3000,
+                step=500
+            )
+
+            tax_fee = st.number_input(
+                "Thuế (%)",
+                min_value=0.0,
+                max_value=20.0,
+                value=1.5,
+                step=0.1
+            ) / 100
 
     # ======================
     # CALCULATION
     # ======================
-    platform_fee = sell_price * fee_rate
-    affiliate_cost = sell_price * affiliate_fee
-    ads_cost = sell_price * ads_fee
-    tax_cost = sell_price * tax_fee
-    extra_voucher = sell_price * extra_voucher_rate
-    transaction_fee = sell_price * transaction_fee_rate
 
+    platform_fee = seller_revenue * fee_rate
+    affiliate_cost = seller_revenue * affiliate_fee
+    ads_cost = seller_revenue * ads_fee
+    tax_cost = seller_revenue * tax_fee
+
+    # Voucher tối đa 50k
+    extra_voucher_raw = seller_revenue * extra_voucher_rate
+    extra_voucher = min(extra_voucher_raw, 50000)
+
+    transaction_fee = seller_revenue * transaction_fee_rate
+
+    # Tổng phí vận hành
     total_fee = (
         platform_fee
         + affiliate_cost
         + ads_cost
         + tax_cost
-        + voucher_fee
         + extra_voucher
         + transaction_fee
         + packing_fee
@@ -700,14 +846,18 @@ if platform == "TikTok":
         + SFR_service_fee
     )
 
-    profit = sell_price - cost_price - total_fee
-    margin = profit / sell_price if sell_price > 0 else 0
+    # Lợi nhuận cuối
+    profit = seller_revenue - cost_price - total_fee
+
+    # Margin thực
+    margin = profit / seller_revenue if seller_revenue > 0 else 0
 
     # ======================
     # RESULT CARDS
     # ======================
     st.markdown('<div class="section-title">Kết quả</div>',
                 unsafe_allow_html=True)
+
     r1, r2, r3 = st.columns(3)
     profit_class = "profit-positive" if profit >= 0 else "profit-negative"
 
@@ -772,10 +922,11 @@ if platform == "TikTok":
             "Affiliate",
             "Quảng cáo",
             "Thuế",
-            "Voucher",
+
             "Voucher Extra",
             "Đóng gói",
-            "Xử lý đơn"
+            "Xử lý đơn",
+            "SFR service"
         ],
         "Số tiền (VNĐ)": [
             platform_fee,
@@ -783,10 +934,10 @@ if platform == "TikTok":
             affiliate_cost,
             ads_cost,
             tax_cost,
-            voucher_fee,
             extra_voucher,
             packing_fee,
-            handling_fee
+            handling_fee,
+            SFR_service_fee
         ]
     })
 
